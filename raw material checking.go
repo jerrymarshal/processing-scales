@@ -14,6 +14,14 @@ func parseGadgets(path string, s string) ([]Gadget, error) {
 		str = strings.ReplaceAll(str, "%"+strconv.Itoa(i), strings.TrimSpace(params[i]))
 	}
 	return str
+
+	  var dir string
+	// we will continue searching thru the tree until we return
+	for {
+		dir, _, gadgets, err = loadGadgetsForPath(searchDir, gadgets)
+		if err != nil || dir == searchDir {
+			return gadgets, err
+		}
 }
 
   //taking a sample
